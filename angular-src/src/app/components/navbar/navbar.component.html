@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark default">
+  <a class="navbar-brand ml-auto" href="#">MEAN</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto navbar-left  ">
+        <li class="nav-item active mr-2"  
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}" 
+        >
+       
+          <a [routerLink]="['/']" 
+          >Home</a>
+        </li>
+      <li class="nav-item active mr-2"  
+      [routerLinkActive]="['active']"
+      [routerLinkActiveOptions]="{exact:true}" *ngIf="authService.loggedIn()"
+      >
+        <a [routerLink]="['/profile']" 
+        >Profile</a>
+      </li>
+
+      <li class="nav-item active   mr-2"  
+      [routerLinkActive]="['active']" *ngIf="authService.loggedIn()"
+      [routerLinkActiveOptions]="{exact:true}"
+      >
+        <a [routerLink]="['/dashboard']" 
+        >Dashboard</a>
+      </li>
+
+    </ul>
+
+   
+
+    <ul class="navbar-nav mr-auto navbar-right">
+        <li class="nav-item active   mr-2"   
+        *ngIf="!authService.loggedIn()"
+        [routerLinkActive]="['active']"
+        [routerLinkActiveOptions]="{exact:true}"
+        >
+          <a [routerLink]="['/register']" 
+          >Register </a>
+        </li>
+
+        <li  [routerLinkActive]="['active']"
+        *ngIf="!authService.loggedIn()"
+        [routerLinkActiveOptions]="{exact:true}" class="nav-item active  mr-2">
+        <a 
+        
+        [routerLink]="['/login']">Login </a>
+      </li>
+       
+      <li 
+      *ngIf="authService.loggedIn()"
+      class="nav-item active  mr-2">
+        <a  (click)="onLogoutClick()"  
+        href="#">Logout </a>
+      </li>
+
+      </ul>
+  
+
+     
+    
+  </div>
+</nav>

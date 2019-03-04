@@ -35,7 +35,15 @@ app.get("/", (req, res) => {
   res.send("invalid endpoints.......");
 });
 
+
+
 app.use("/users", users);
+
+
+app.get('*',(req,res)=>{
+res.sendFile(path.join(__dirname,'public/index.html'))
+
+})
 
 app.listen(PORT, () => {
   console.log(`app listening to port ${PORT}`);

@@ -68,7 +68,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res, next) => {
     console.log("profile ");
-    console.log();
+    console.log("=====================");
     res.json({
       user: req.user
     });

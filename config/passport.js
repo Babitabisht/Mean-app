@@ -15,7 +15,7 @@ passport.use(new JwtStrategy(opts,(jwt_payload,done)=>{
     console.log("inside")
     console.log(jwt_payload)
 User.getUserById( jwt_payload._id,(err,user)=>{
-if(err){  
+if(err){    
     console.log("error in authenticating ")
     return done(err,false)}
 if(user){  
